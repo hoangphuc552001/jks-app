@@ -1,10 +1,10 @@
-pipeline {
-    agent any
-
-    stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
+node{
+    stage('test'){
+    }
+    stage('build'){
+        steps {
+            nodejs(nodeJSInstallationName: 'default') {
+                sh 'npm install'
             }
         }
     }
