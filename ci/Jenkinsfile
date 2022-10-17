@@ -1,9 +1,12 @@
 node{
+    stage('Init'){
+        checkout scm
+    }
     stage('unit test'){
-            nodejs(nodeJSInstallationName: 'default') {
-                sh 'npm install --only=dev'
-                sh 'npm test'
-            }
+        nodejs(nodeJSInstallationName: 'default') {
+            sh 'npm install --only=dev'
+            sh 'npm test'
+        }
 
     }
     stage('build'){
